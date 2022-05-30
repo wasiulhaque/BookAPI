@@ -10,7 +10,8 @@ namespace BookAPI.Exceptions
     {
         private static Dictionary<Type, HttpStatusCode> exceptionStatusCode = new Dictionary<Type, HttpStatusCode>
         {
-            {typeof(BookNotFoundException), HttpStatusCode.NotFound}
+            {typeof(BookNotFoundException), HttpStatusCode.NotFound},
+            {typeof(IDZeroException), HttpStatusCode.BadRequest}
         };
 
         public static HttpStatusCode GetExceptionStatusCode(Exception exception)
