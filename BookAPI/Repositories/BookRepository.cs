@@ -16,26 +16,26 @@ namespace BookAPI.Repositories
         }
         public async Task<Book> Create(Book book)
         {
-            _context.Books.Add(book);
+            _context.BooksList.Add(book);
             await _context.SaveChangesAsync();
             return book;
         }
 
         public async Task Delete(int ID)
         {
-            var bookToDelete = await _context.Books.FindAsync(ID);
-            _context.Books.Remove(bookToDelete);
+            var bookToDelete = await _context.BooksList.FindAsync(ID);
+            _context.BooksList.Remove(bookToDelete);
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Book>> Get()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.BooksList.ToListAsync();
         }
 
         public async Task<Book> Get(int ID)
         {
-            return await _context.Books.FindAsync(ID);
+            return await _context.BooksList.FindAsync(ID);
         }
 
         public async Task Update(Book book)

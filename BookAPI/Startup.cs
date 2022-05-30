@@ -30,7 +30,10 @@ namespace BookAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBookRepository, BookRepository>();
-            services.AddDbContext<BookContext>(o => o.UseSqlite("Data source=books.db"));
+            //services.AddDbContext<BookContext>(o => o.UseSqlite("Data source=books.db"));
+            services.AddDbContext<BookContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                );
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

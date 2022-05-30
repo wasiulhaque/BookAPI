@@ -13,6 +13,6 @@ namespace BookAPI.Models
         {
             Database.EnsureCreated();
         }
-        public DbSet <Book> Books { get; set; }
+        public DbSet <Book> BooksList { get; set; }
     } 
 }
