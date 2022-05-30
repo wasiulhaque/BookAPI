@@ -1,4 +1,5 @@
 ﻿using BookAPI.Models;
+using BookAPI.Validators;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace BookAPI.Repositories
 
         public async Task<Book> Get(int ID)
         {
+            IDValidator.Validate(ID);
             return await _context.BooksList.FindAsync(ID);
         }
 
