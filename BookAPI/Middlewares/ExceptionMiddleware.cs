@@ -24,7 +24,7 @@ namespace BookAPI.Middlewares
             catch(Exception exception)
             {
                 httpContext.Response.StatusCode = (int) ExceptionStatusCodes.GetExceptionStatusCode(exception);
-                await httpContext.Response.WriteAsync(exception.Message);
+                await httpContext.Response.WriteAsync(exception.Message + "\n" + exception.StackTrace);
             }
         }
     }
