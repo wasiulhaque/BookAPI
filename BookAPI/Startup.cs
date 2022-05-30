@@ -1,3 +1,4 @@
+using BookAPI.Middlewares;
 using BookAPI.Models;
 using BookAPI.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -50,6 +51,8 @@ namespace BookAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BookAPI v1"));
             }
+
+            app.UseExceptionMiddleware();
 
             app.UseHttpsRedirection();
 
